@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package javafx_ik;
 
 import java.net.URL;
@@ -12,10 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 
-/**
- *
- * @author java-1
- */
+
 public class FXMLDocumentController implements Initializable {
     
     @FXML
@@ -24,7 +17,12 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonAction(ActionEvent event) {
         System.out.println("Butona tıklayın");
+<<<<<<< HEAD
         label.setText("Merhaba Dünya.");
+=======
+        System.out.println("Bence tıklamayın");
+        label.setText("Hello World!");
+>>>>>>> origin/master
     }
     
     @Override
