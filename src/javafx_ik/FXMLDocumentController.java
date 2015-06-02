@@ -19,12 +19,21 @@ public class FXMLDocumentController implements Initializable {
     private void handleButtonAction(ActionEvent event) {
         
         System.out.println("Butona tıklayın");
+<<<<<<< HEAD
       
         label.setText("Merhaba Dünya.");
         
         System.out.println("Bence tıklamayın");
         label.setText("Hello World!");
         
+=======
+<<<<<<< HEAD
+        label.setText("Merhaba Dünya.");
+=======
+        System.out.println("Bence tıklamayın");
+        label.setText("Hello World!");
+>>>>>>> origin/master
+>>>>>>> 734022c9acc3e39e243ab461b4ff2bbb4e2c999c
     }
     
     @Override
