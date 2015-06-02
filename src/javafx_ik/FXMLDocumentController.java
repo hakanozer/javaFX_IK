@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javafx_ik_;
+package javafx_ik;
 
 import java.net.URL;
 import java.util.ResourceBundle;
