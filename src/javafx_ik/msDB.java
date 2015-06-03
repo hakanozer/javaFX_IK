@@ -2,16 +2,19 @@ package javafx_ik;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class msDB {
 
-    Statement st;
-    Connection conn;
-    String url = "jdbc:sqlserver://localhost;";//1443 mssql kullandıgı port numaraısı
-    String dbName = "proje";
-    String userName = "sa";
-    String userPass = "12345678";
+    private Statement st;
+    private Connection conn;
+    private final String url = "jdbc:sqlserver://localhost;";//1443 mssql kullandıgı port numaraısı
+    private final String dbName = "ik";
+    private final String userName = "sa";
+    private final String userPass = "12345678";
 
     public Statement baglan() {
 
@@ -25,7 +28,17 @@ public class msDB {
         return st;
     }
     
-    
-    
-    
+    public void kapat(){
+        try {
+            if(!st.isClosed()){
+                st.close();
+                conn.close();
+                System.out.println("MsSql Bağlantısı Kapatıldı.");
+            } else {
+                System.out.println("Connection zaten kapalı.");
+            }
+        } catch (SQLException ex) {
+            System.err.println("MSSQL Bağlatısı Kapatma Hatası : " + ex);
+        }
+    } 
 }
