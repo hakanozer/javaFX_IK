@@ -18,17 +18,17 @@ public class GirisEkraniController extends Kisiler implements Initializable {
     
     @FXML
     public void girisYapEkran() {
-        int dizi[] = girisYap(txtKuladi.getText(), m.md5Olustur(txtParola.getText()));
+        String dizi[] = girisYap(txtKuladi.getText(), m.md5Olustur(txtParola.getText()));
         // aşağıdaki koşul gövdelerinde dizinin ikinci elemanına göre 
         // ilgili profil idsinin bilgilerine ulaşılacak
-        if (dizi[0] == 0) {
+        if (dizi[0] == "0") {
             // admin ekranı
-        } else if (dizi[0] == 1) {
+        } else if (dizi[0] == "1") {
             // İK uzman ekranı
-        } else if (dizi[0] == 2) {
+        } else if (dizi[0] == "2") {
 
             // firma ekranı
-        } else if (dizi[0] == 3) {
+        } else if (dizi[0] == "3") {
             // personel ekranı
         }
         // metottan dönen dizi değerlerine göre ekrana yönelecek

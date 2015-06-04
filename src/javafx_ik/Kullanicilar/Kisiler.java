@@ -51,16 +51,21 @@ public abstract class Kisiler extends msDB {
 
     }
 
-    public int[] girisYap(String kul_adi, String kul_sifre) {
+    public String[] girisYap(String kul_adi, String kul_sifre) {
         // girişyap kul_adi
-        int sevID[] = new int[2];
+        String sevID[] = new String[2];
         try {
             ResultSet rs = baglan().executeQuery("SELECT *FROM kisiler WHERE kul_adi='" + kul_adi + "' AND kul_sifre ='" + kul_sifre + "'");
             if (rs.next()) {
+                //Giriş yapan kullanıcının seviyesi ve profil_idsi alınarak diziye atanır.
+                //Giriş yapan admin ise profil_idsi bulunmadığından kul_adi alınır.
                 System.out.println("Giriş Başarılı!");
-                sevID[0] = rs.getInt("seviye");
-                sevID[1] = rs.getInt("profil_id");
-
+                sevID[0] = String.valueOf(rs.getInt("seviye"));
+                if (rs.getInt("seviye") == 0) {
+                    sevID[1] = rs.getString("kul_adi");
+                } else {
+                    sevID[1] = String.valueOf(rs.getInt("profil_id"));
+                }
             }
         } catch (Exception e) {
             System.err.println("Giriş Yapılamadı : " + e);
