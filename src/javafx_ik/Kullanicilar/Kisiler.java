@@ -5,27 +5,6 @@ import javafx_ik.msDB;
 
 public abstract class Kisiler extends msDB {
 
-    private String kul_adi;
-    private String kul_sifre;
-    private int seviye;
-    private int profil_id;
-
-    public String getKul_adi() {
-        return kul_adi;
-    }
-
-    public String getKul_sifre() {
-        return kul_sifre;
-    }
-
-    public int getSeviye() {
-        return seviye;
-    }
-
-    public int getProfil_id() {
-        return profil_id;
-    }
-
     public void kayitOl(String kul_adi, String kul_sifre, int seviye) {
         // kayıt kul_adi ve şifre ile
         try {
