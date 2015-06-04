@@ -26,6 +26,7 @@ public class DynamicTable extends Application{
     //MAIN EXECUTOR
     public static void main(String[] args) {
         launch(args);
+        //recep çoban, echo "coban was here";
     }
 
     //CONNECTION DATABASE
