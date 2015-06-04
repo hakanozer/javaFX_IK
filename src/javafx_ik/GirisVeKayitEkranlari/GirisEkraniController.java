@@ -17,7 +17,6 @@ import javafx_ik.FirmaBolumu.*;
 
 public class GirisEkraniController extends Kisiler implements Initializable {
 
-    Metodlar m = new Metodlar();
     @FXML
     TextField txtKuladi;
     @FXML
@@ -25,13 +24,13 @@ public class GirisEkraniController extends Kisiler implements Initializable {
 
     @FXML
     public void girisYapEkran() throws IOException {
-        String dizi[] = girisYap(txtKuladi.getText(), m.md5Olustur(txtParola.getText()));
+        String dizi[] = girisYap(txtKuladi.getText(), md5Olustur(txtParola.getText()));
         // aşağıdaki koşul gövdelerinde dizinin ikinci elemanına göre 
         // ilgili profil idsinin bilgilerine ulaşılacak
         String x = dizi[0];
         if ("0".equals(x)) {
             // admin ekranı
-              AdminPanelController f = new AdminPanelController();
+            AdminPanelController f = new AdminPanelController();
             Stage ns = new Stage();
             FXMLLoader ld = new FXMLLoader();
             Parent loader = ld.load(f.getClass().getResource("AdminPanel.fxml").openStream());
@@ -57,6 +56,8 @@ public class GirisEkraniController extends Kisiler implements Initializable {
             // personel ekranı
         }
         // metottan dönen dizi değerlerine göre ekrana yönelecek
+        Stage s= (Stage) txtKuladi.getScene().getWindow();
+        s.close();
     }
 
     @Override

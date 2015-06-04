@@ -1,25 +1,33 @@
 package javafx_ik.GirisVeKayitEkranlari;
 
+import java.io.IOException;
 import java.net.URL;
-import java.security.MessageDigest;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
+import javafx_ik.Admin.AdminPanelController;
 import javafx_ik.Kullanicilar.Kisiler;
 
 public class KayitEkraniController extends Kisiler implements Initializable {
-Metodlar m = new Metodlar();
-    public void choices() {
 
+    public void choices() {
         seviyeSec.getItems().addAll("Admin", "İK Uzmanı", "Firma", "Personel");
+
     }
 
     @FXML
@@ -32,10 +40,11 @@ Metodlar m = new Metodlar();
     private Label label;
     @FXML
     private ChoiceBox seviyeSec;
+    @FXML
+    private AnchorPane kayitekrani;
 
     @FXML
     private void handleButtonAction(ActionEvent event) {
-        System.out.println(seviyeSec.getSelectionModel().getSelectedIndex());
         String pass = parola.getText();
         String user = kadi.getText();
         int seviye = 0;
@@ -53,8 +62,8 @@ Metodlar m = new Metodlar();
             label.setText("Boş Alan Bırakmayın!");
         } else {
 
-            if (kayitOl(user, m.md5Olustur(pass), seviye)) {
-              // kayıt başarılı ise
+            if (kayitOl(user, md5Olustur(pass), seviye)) {
+                // kayıt başarılı ise
                 // kaydı yapan kişinin kendi sayfası devam edecek
             }
 
@@ -62,10 +71,10 @@ Metodlar m = new Metodlar();
 
     }
 
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         choices(); // ChoiceBox dolduruluyor.
+
     }
 
 }
