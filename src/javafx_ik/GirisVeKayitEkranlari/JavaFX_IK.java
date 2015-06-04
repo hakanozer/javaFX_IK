@@ -1,9 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package javafx_ik;
+package javafx_ik.GirisVeKayitEkranlari;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,15 +6,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-/**
- *
- * @author java-1
- */
 public class JavaFX_IK extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("GirisEkrani.fxml"));
         
         Scene scene = new Scene(root);
         stage.setTitle("JavaFX IK Projesi");
@@ -27,9 +18,6 @@ public class JavaFX_IK extends Application {
         stage.show();
     }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         launch(args);
     }
