@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx_ik.Admin.AdminPanelController;
 import javafx_ik.Kullanicilar.Kisiler;
 import javafx_ik.FirmaBolumu.*;
 
@@ -30,6 +31,13 @@ public class GirisEkraniController extends Kisiler implements Initializable {
         String x = dizi[0];
         if ("0".equals(x)) {
             // admin ekranı
+              AdminPanelController f = new AdminPanelController();
+            Stage ns = new Stage();
+            FXMLLoader ld = new FXMLLoader();
+            Parent loader = ld.load(f.getClass().getResource("AdminPanel.fxml").openStream());
+            Scene gec = new Scene(loader);
+            ns.setScene(gec);
+            ns.show();
         } else if ("1".equals(x)) {
             // İK uzman ekranı
 
