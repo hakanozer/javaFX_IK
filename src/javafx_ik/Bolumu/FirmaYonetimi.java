@@ -21,8 +21,9 @@ public class FirmaYonetimi extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("firmaYonetimi.fxml"));
+        
         Scene scene = new Scene(root);
-        primaryStage.setTitle("Firma Yönetimi");
+        
         primaryStage.setScene(scene);
         primaryStage.show();
     }
