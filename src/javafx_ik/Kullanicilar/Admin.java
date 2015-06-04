@@ -1,5 +1,5 @@
 package javafx_ik.Kullanicilar;
 
-public class Admin {
+public class Admin{
     
 }
