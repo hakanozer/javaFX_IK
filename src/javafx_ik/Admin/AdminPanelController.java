@@ -9,6 +9,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx_ik.Bolumu.DynamicTable;
+import javafx_ik.Bolumu.FirmaYonetimi;
 import javafx_ik.GirisVeKayitEkranlari.KayitEkraniController;
 
 public class AdminPanelController implements Initializable {
@@ -23,6 +25,17 @@ public class AdminPanelController implements Initializable {
         ns.setScene(gec);
         ns.show();
 
+    }
+
+    @FXML
+    public void firmaEkrani() throws IOException {
+        FirmaYonetimi fy = new FirmaYonetimi();
+        Stage ns = new Stage();
+        FXMLLoader ld = new FXMLLoader();
+        Parent loader = ld.load(fy.getClass().getResource("firmaYonetimi.fxml").openStream());
+        Scene gec = new Scene(loader);
+        ns.setScene(gec);
+        ns.show();
     }
 
     @Override

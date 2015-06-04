@@ -6,8 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="javafx_ik.Admin.AdminPanelController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx_ik.Admin.AdminPanelController">
    <children>
       <Button layoutX="45.0" layoutY="160.0" mnemonicParsing="false" prefHeight="148.0" prefWidth="130.0" text="İlanlar" />
       <Button layoutX="214.0" layoutY="167.0" mnemonicParsing="false" prefHeight="104.0" prefWidth="135.0" text="Firma" />
