@@ -16,18 +16,7 @@ public class Personel extends Kisiler {
     private String ek_aciklama;
     private String tarih;
     private int durum;
-
-    @Override
-    public void kayitOl() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void girisYap() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    
+   
 
 // Sadece Personel'i ilgilendiren metodlar...
     

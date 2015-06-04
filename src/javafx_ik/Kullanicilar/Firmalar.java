@@ -15,17 +15,7 @@ public class Firmalar extends Kisiler{
     private String mail;
     private String date;
 
-    @Override
-    public void kayitOl() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void girisYap() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
+  
 
 // Sadece Firmalar'ı ilgilendiren metodlar...
    

@@ -11,18 +11,6 @@ public class IkUzmani extends Kisiler{
     private String tarih;
     
 
-    @Override
-    public void kayitOl() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void girisYap() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
-
 // Sadece İK Uzmanı'nı ilgilendiren metodlar...
    
 }
