@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.effect.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -8,19 +10,48 @@
 <?import javafx.scene.layout.*?>
 
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="javafx_ik.FirmaBolumu.FXMLFirmaBolumuController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <FlowPane prefHeight="400.0" prefWidth="600.0">
+      <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Pane prefHeight="96.0" prefWidth="600.0">
-               <effect>
-                  <Shadow />
-               </effect>
-               <children>
-                  <Button layoutX="534.0" layoutY="36.0" mnemonicParsing="false" text="Button" />
-               </children>
-            </Pane>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <Label text="Label" />
+            <Region prefHeight="200.0" prefWidth="200.0" />
+            <Label text="Label" />
+            <Label text="Label" />
+            <Button mnemonicParsing="false" text="Button" />
          </children>
-      </FlowPane>
+      </HBox>
+      <HBox alignment="BASELINE_CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="İlanlar" />
+            <Region prefHeight="81.0" prefWidth="200.0" />
+            <Button mnemonicParsing="false" text="Button" />
+         </children>
+      </HBox>
+      <HBox prefHeight="155.0" prefWidth="600.0">
+         <children>
+            <TableView prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="75.0" text="C2" />
+              </columns>
+            </TableView>
+            <Region prefHeight="200.0" prefWidth="200.0" />
+            <TableView prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="75.0" text="C2" />
+              </columns>
+            </TableView>
+         </children>
+      </HBox>
+      <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button mnemonicParsing="false" text="Button" />
+            <Region prefHeight="200.0" prefWidth="200.0" />
+            <Button mnemonicParsing="false" text="Button" />
+         </children>
+      </HBox>
    </children>
-</AnchorPane>
+</VBox>
