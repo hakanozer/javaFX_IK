@@ -5,6 +5,10 @@
         <group/>
         <group name="fdsafdafdsa">
             <file>file:/C:/Users/java-1/Documents/NetBeansProjects/javaFX_IK/src/javafx_ik/FXMLDocumentController.java</file>
+            <file>file:/C:/Users/java-1/Documents/NetBeansProjects/javaFX_IK/src/javafx_ik/FirmaBolumu/FXMLFirmaBolumuController.java</file>
+            <file>file:/C:/Users/java-1/Documents/NetBeansProjects/javaFX_IK/src/javafx_ik/FirmaBolumu/FirmaBolumu.java</file>
+            <file>file:/C:/Users/java-1/Documents/NetBeansProjects/javaFX_IK/src/javafx_ik/JavaFX_IK.java</file>
+            <file>file:/C:/Users/java-1/Documents/NetBeansProjects/javaFX_IK/src/javafx_ik/msDB.java</file>
         </group>
     </open-files>
 </project-private>
