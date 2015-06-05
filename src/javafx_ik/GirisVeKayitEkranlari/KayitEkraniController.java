@@ -1,7 +1,10 @@
 package javafx_ik.GirisVeKayitEkranlari;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,6 +14,8 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx_ik.Hata;
 import javafx_ik.Kullanicilar.Kisiler;
 
@@ -72,6 +77,16 @@ public class KayitEkraniController extends Kisiler implements Initializable, Hat
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         choices(); // ChoiceBox dolduruluyor.
+        kadi.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                handleButtonAction(null);
+            }
+        });
+        parola.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                handleButtonAction(null);
+            }
+        });
     }
 
 }
