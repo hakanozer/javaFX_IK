@@ -15,11 +15,11 @@
             <TableColumn fx:id="c3" prefWidth="75.0" text="Üst Kat. Id" />
         </columns>
       </TableView>
-      <Button layoutX="597.0" layoutY="258.0" mnemonicParsing="false" onAction="#yeniUstKatEkle" prefHeight="65.0" prefWidth="150.0" text="Yeni Üst Kategori Ekle" />
+      <Button layoutX="598.0" layoutY="43.0" mnemonicParsing="false" onAction="#yeniUstKatEkle" prefHeight="65.0" prefWidth="150.0" text="Yeni Üst Kategori Ekle" />
       <Button layoutX="598.0" layoutY="504.0" mnemonicParsing="false" onAction="#silButon" prefHeight="65.0" prefWidth="150.0" style="-fx-font-size: 20; -fx-background-color: #dc5231;" text="Kategori Sil" />
-      <ChoiceBox fx:id="katbox" layoutX="269.0" layoutY="34.0" prefHeight="65.0" prefWidth="150.0" />
-      <TextField fx:id="txtBolumyeni" layoutX="432.0" layoutY="34.0" prefHeight="65.0" prefWidth="150.0" promptText="Yeni Bölüm Adı" style="-fx-font-size: 15;" />
-      <Button layoutX="597.0" layoutY="34.0" mnemonicParsing="false" onAction="#yeniKategoriEkle" prefHeight="65.0" prefWidth="150.0" text="Yeni Kategori Ekle" />
-      <TextField fx:id="yeniUstKat" layoutX="432.0" layoutY="258.0" prefHeight="65.0" prefWidth="150.0" promptText="Yeni Üst Kategori" style="-fx-font-size: 15;" />
+      <ChoiceBox fx:id="katbox" layoutX="268.0" layoutY="258.0" prefHeight="65.0" prefWidth="150.0" />
+      <TextField fx:id="txtBolumyeni" layoutX="432.0" layoutY="258.0" prefHeight="65.0" prefWidth="150.0" promptText="Yeni Bölüm Adı" style="-fx-font-size: 15;" />
+      <Button layoutX="598.0" layoutY="258.0" mnemonicParsing="false" onAction="#yeniKategoriEkle" prefHeight="65.0" prefWidth="150.0" text="Yeni Kategori Ekle" />
+      <TextField fx:id="yeniUstKat" layoutX="432.0" layoutY="43.0" prefHeight="65.0" prefWidth="150.0" promptText="Yeni Üst Kategori" style="-fx-font-size: 15;" />
    </children>
 </AnchorPane>

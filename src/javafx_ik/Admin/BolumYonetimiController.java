@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -78,10 +79,16 @@ public class BolumYonetimiController extends Bolumler implements Initializable {
 
     @FXML
     private void silButon() throws SQLException {
-        final Bolumler sinif = (Bolumler) tableBolum.getSelectionModel().getSelectedItem();
-        setId(sinif.getId());
-        sil();
-        initialize(null, null);
+        Bolumler sinif = (Bolumler) tableBolum.getSelectionModel().getSelectedItem();
+        if (sinif != null) {
+            setId(sinif.getId());
+            sil();
+            sinif = null;
+            initialize(null, null);
+        } else {
+            Alert uyari= new Alert(Alert.AlertType.ERROR);
+           uyari.setContentText("Kategori seçiniz...");
+        }
 
     }
 
