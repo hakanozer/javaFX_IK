@@ -1,21 +1,20 @@
 package javafx_ik.GirisVeKayitEkranlari;
 
 import java.net.URL;
-import java.security.MessageDigest;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx_ik.Hata;
 import javafx_ik.Kullanicilar.Kisiler;
 
-public class KayitEkraniController extends Kisiler implements Initializable {
+public class KayitEkraniController extends Kisiler implements Initializable, Hata {
 
     public void choices() {
 
@@ -35,33 +34,40 @@ public class KayitEkraniController extends Kisiler implements Initializable {
 
     @FXML
     private void handleButtonAction(ActionEvent event) {
-        
-        String pass = parola.getText();
-        String user = kadi.getText();
-        int seviye = 0;
-        if (seviyeSec.getSelectionModel().getSelectedIndex() == 0) {
-            seviye = 0;
-        } else if (seviyeSec.getSelectionModel().getSelectedIndex() == 1) {
-            seviye = 1;
-        } else if (seviyeSec.getSelectionModel().getSelectedIndex() == 2) {
-            seviye = 2;
-        } else if (seviyeSec.getSelectionModel().getSelectedIndex() == 3) {
-            seviye = 3;
-        }
 
-        if (user.equals("") || pass.equals("")) {
-            label.setText("Boş Alan Bırakmayın!");
-        } else {
-
-            if (kayitOl(user, md5Olustur(pass), seviye)) {
-              // kayıt başarılı ise
-                // kaydı yapan kişinin kendi sayfası devam edecek
+        if (!Hata.hataDenetle(kadi) && !Hata.hataDenetle(parola) && !seviyeSec.getSelectionModel().isEmpty()) {
+            String pass = parola.getText();
+            String user = kadi.getText();
+            int seviye = 0;
+            if (seviyeSec.getSelectionModel().getSelectedIndex() == 0) {
+                seviye = 0;
+            } else if (seviyeSec.getSelectionModel().getSelectedIndex() == 1) {
+                seviye = 1;
+            } else if (seviyeSec.getSelectionModel().getSelectedIndex() == 2) {
+                seviye = 2;
+            } else if (seviyeSec.getSelectionModel().getSelectedIndex() == 3) {
+                seviye = 3;
             }
 
+            if (user.equals("") || pass.equals("")) {
+                label.setText("Boş Alan Bırakmayın!");
+            } else {
+
+                if (kayitOl(user, md5Olustur(pass), seviye)) {
+                    // kayıt başarılı ise
+                    // kaydı yapan kişinin kendi sayfası devam edecek
+                }
+
+            }
         }
-
+        if (seviyeSec.getSelectionModel().isEmpty()) {
+            Alert uyari = new Alert(Alert.AlertType.ERROR);
+            uyari.setTitle("Uyarı");
+            uyari.setHeaderText("Hata");
+            uyari.setContentText("Seviye seçiniz!");
+            uyari.show();
+        }
     }
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

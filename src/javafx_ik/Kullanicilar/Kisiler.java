@@ -10,8 +10,10 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import javafx_ik.Admin.AdminPanelController;
+import javafx_ik.GirisVeKayitEkranlari.GirisEkraniController;
 import javafx_ik.GirisVeKayitEkranlari.KayitEkraniController;
 import javafx_ik.msDB;
 
@@ -78,13 +80,19 @@ public abstract class Kisiler extends msDB {
                 } else {
                     sevID[1] = String.valueOf(rs.getInt("profil_id"));
                 }
+            } else {
+                Alert uyari = new Alert(Alert.AlertType.ERROR);
+                uyari.setTitle("Uyarı");
+                uyari.setHeaderText("Hata");
+                uyari.setContentText("Yanlış Kullanıcı Adı veya Şifre!");
+                uyari.show();
             }
         } catch (Exception e) {
             System.err.println("Giriş Yapılamadı : " + e);
         }
         return sevID;
     }
-    
+
     public String md5Olustur(String pass) {
 
         StringBuffer sb32 = null;
@@ -109,7 +117,7 @@ public abstract class Kisiler extends msDB {
         return sb32.toString();
 
     }
-    
+
     public EventHandler geriDonus = new EventHandler() {
 
         @Override
@@ -129,7 +137,23 @@ public abstract class Kisiler extends msDB {
 
     };
 
+    public EventHandler giriseGeriDonus = new EventHandler() {
 
+        @Override
+        public void handle(Event event) {
+            try {
+                GirisEkraniController adm = new GirisEkraniController();
+                Stage ns = new Stage();
+                FXMLLoader ld = new FXMLLoader();
+                Parent loader = ld.load(adm.getClass().getResource("GirisEkrani.fxml").openStream());
+                Scene gec = new Scene(loader);
+                ns.setScene(gec);
+                ns.show();
+            } catch (IOException ex) {
+                Logger.getLogger(KayitEkraniController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
 
+    };
 
 }
