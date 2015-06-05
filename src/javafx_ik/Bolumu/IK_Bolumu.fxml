@@ -15,7 +15,7 @@
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <TableView fx:id="table_firma" layoutX="152.0" layoutY="150.0" prefHeight="295.0" prefWidth="590.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="70.0" />
-                        <TextField fx:id="txtArama" layoutX="365.0" layoutY="34.0" onAction="#fncArama" prefHeight="25.0" prefWidth="220.0" promptText="Arama" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="35.0" />
+                        <TextField fx:id="txtFirma" layoutX="365.0" layoutY="34.0" onAction="#fncArama" prefHeight="25.0" prefWidth="220.0" promptText="Arama" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="35.0" />
                      </children>
                   </AnchorPane>
             </content>
@@ -25,7 +25,7 @@
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <TableView fx:id="table_ilan" layoutX="149.0" layoutY="107.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="70.0" />
-                        <TextField layoutX="359.0" layoutY="36.0" prefHeight="25.0" prefWidth="220.0" promptText="Arama" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="35.0" />
+                        <TextField fx:id="txtIlan" layoutX="359.0" layoutY="36.0" prefHeight="25.0" prefWidth="220.0" promptText="Arama" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="35.0" />
                      </children></AnchorPane>
             </content>
           </Tab>
@@ -34,7 +34,7 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <TableView fx:id="table_personel" layoutX="200.0" layoutY="113.0" prefHeight="269.0" prefWidth="590.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="70.0" />
-                        <TextField layoutX="383.0" layoutY="33.0" prefHeight="25.0" prefWidth="220.0" promptText="Arama" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="35.0" />
+                        <TextField fx:id="txtPersonel" layoutX="383.0" layoutY="33.0" prefHeight="25.0" prefWidth="220.0" promptText="Arama" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="35.0" />
                      </children></AnchorPane>
               </content>
             </Tab>
@@ -43,7 +43,7 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <TableView fx:id="table_puan" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="70.0" />
-                        <TextField layoutX="437.0" layoutY="34.0" prefHeight="25.0" prefWidth="220.0" promptText="Arama" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="35.0" />
+                        <TextField fx:id="txtPuan" layoutX="437.0" layoutY="34.0" prefHeight="25.0" prefWidth="220.0" promptText="Arama" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="35.0" />
                      </children></AnchorPane>
               </content>
             </Tab>
@@ -52,7 +52,7 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <TableView fx:id="table_gorusme" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="70.0" />
-                        <TextField layoutX="437.0" layoutY="33.0" prefHeight="25.0" prefWidth="220.0" promptText="Arama" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="35.0" />
+                        <TextField fx:id="txtGorusme" layoutX="437.0" layoutY="33.0" prefHeight="25.0" prefWidth="220.0" promptText="Arama" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="35.0" />
                      </children></AnchorPane>
               </content>
             </Tab>

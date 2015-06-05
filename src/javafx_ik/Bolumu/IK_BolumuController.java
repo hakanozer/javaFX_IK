@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package javafx_ik.Bolumu;
 
 import java.net.URL;
@@ -17,19 +12,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.util.Callback;
 import javafx_ik.msDB;
 
-/**
- * FXML Controller class
- *
- * @author java-1
- */
 public class IK_BolumuController implements Initializable {
 
     msDB db = new msDB();
@@ -38,40 +26,37 @@ public class IK_BolumuController implements Initializable {
     @FXML
     private TableView table_firma, table_ilan, table_personel, table_puan, table_gorusme;
     @FXML
-    private TextField txtArama;
+    private TextField txtFirma,txtIlan,txtPersonel,txtPuan,txtGorusme;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
     }
 
-    @FXML
     public void firmaYonetimi() {
         DataGetir("firmalar", table_firma);
     }
 
-    @FXML
     public void ilanYonetimi() {
         DataGetir("ilanlar", table_ilan);
     }
 
-    @FXML
     public void personelYonetimi() {
         DataGetir("personel", table_personel);
     }
 
-    @FXML
     public void puanYonetimi() {
         DataGetir("puanlama", table_puan);
     }
 
-    @FXML
     public void gorusmeYonetimi() {
         DataGetir("gorusmeler", table_gorusme);
     }
 
     public void DataGetir(String tabloAdi, TableView model) {
 
+        model.getItems().clear();
+        model.getColumns().clear();
         data = FXCollections.observableArrayList();
 
         try {
@@ -125,7 +110,7 @@ public class IK_BolumuController implements Initializable {
     }
 
     public void fncArama() {
-        String search = txtArama.getText();
+        String search = txtFirma.getText();
         for (ObservableList name : data) {
             if (name.contains(search)) {
                 System.out.println(name);
