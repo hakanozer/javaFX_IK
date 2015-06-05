@@ -34,7 +34,7 @@ public class IK_BolumuController implements Initializable {
     }
 
     public void firmaYonetimi() {
-        DataGetir("firmalar", table_firma);
+        DataGetir("kisiler", table_firma);
     }
 
     public void ilanYonetimi() {
@@ -111,11 +111,63 @@ public class IK_BolumuController implements Initializable {
 
     public void fncArama() {
         String search = txtFirma.getText();
-        for (ObservableList name : data) {
-            if (name.contains(search)) {
-                System.out.println(name);
+        Aradatagetir("kisiler", table_firma, search);
+    }
+    
+       public void Aradatagetir(String tabloAdi, TableView model, String ara) {
+           
+        model.getItems().clear();
+        model.getColumns().clear();
+        data = FXCollections.observableArrayList();
+
+        try {
+            ResultSet rs = db.baglan().executeQuery("SELECT * FROM " + tabloAdi+" where kul_adi like '%"+ara+"%' ");
+            ResultSetMetaData metaData = rs.getMetaData();
+
+            // column oluşturma
+            List<String> columns = new ArrayList<String>();
+            int columnCount = metaData.getColumnCount();
+            for (int column = 1; column <= columnCount; column++) {
+                columns.add(metaData.getColumnName(column));
             }
+            TableColumn[] tableColumns = new TableColumn[columns.size()];
+            int columnIndex = 0;
+            for (int i = 0; i < columns.size(); i++) {
+                final int j = i;
+                TableColumn col = new TableColumn(columns.get(i));
+                col.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ObservableList, String>, ObservableValue<String>>() {
+                    public ObservableValue<String> call(TableColumn.CellDataFeatures<ObservableList, String> param) {
+                        String yaz;
+                        try {
+                            yaz = param.getValue().get(j).toString();
+                        } catch (Exception e) {
+                            yaz = "";
+                        }
+
+                        return new SimpleStringProperty(yaz);
+                    }
+                });
+                model.getColumns().addAll(col);
+            }
+
+            // rows getirme
+            while (rs.next()) {
+                ObservableList<Object> row = FXCollections.observableArrayList();
+                for (int i = 1; i <= columnCount; i++) {
+                    row.add(rs.getObject(i));
+                }
+                data.add(row);
+            }
+            model.setItems(data);
+
+        } catch (Exception e) {
+
+            System.err.println("Data Getirme Hatası : " + e);
+
         }
+
+        model.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+
     }
 
 }
