@@ -17,6 +17,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -34,16 +36,41 @@ public class IK_BolumuController implements Initializable {
     ObservableList<ObservableList> data;
 
     @FXML
-    private TableView table;
+    private TableView table_firma, table_ilan, table_personel, table_puan, table_gorusme;
     @FXML
     private TextField txtArama;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        DataGetir("firmalar");
+
     }
 
-    public void DataGetir(String tabloAdi) {
+    @FXML
+    public void firmaYonetimi() {
+        DataGetir("firmalar", table_firma);
+    }
+
+    @FXML
+    public void ilanYonetimi() {
+        DataGetir("ilanlar", table_ilan);
+    }
+
+    @FXML
+    public void personelYonetimi() {
+        DataGetir("personel", table_personel);
+    }
+
+    @FXML
+    public void puanYonetimi() {
+        DataGetir("puanlama", table_puan);
+    }
+
+    @FXML
+    public void gorusmeYonetimi() {
+        DataGetir("gorusmeler", table_gorusme);
+    }
+
+    public void DataGetir(String tabloAdi, TableView model) {
 
         data = FXCollections.observableArrayList();
 
@@ -74,7 +101,7 @@ public class IK_BolumuController implements Initializable {
                         return new SimpleStringProperty(yaz);
                     }
                 });
-                table.getColumns().addAll(col);
+                model.getColumns().addAll(col);
             }
 
             // rows getirme
@@ -85,7 +112,7 @@ public class IK_BolumuController implements Initializable {
                 }
                 data.add(row);
             }
-            table.setItems(data);
+            model.setItems(data);
 
         } catch (Exception e) {
 
@@ -93,7 +120,7 @@ public class IK_BolumuController implements Initializable {
 
         }
 
-        table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        model.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
     }
 

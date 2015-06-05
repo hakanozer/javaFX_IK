@@ -6,11 +6,57 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx_ik.Bolumu.IK_BolumuController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx_ik.Bolumu.IK_BolumuController">
     <children>
-        <TableView fx:id="table" layoutX="21.0" layoutY="115.0" prefHeight="328.0" prefWidth="680.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="120.0">
-
-        </TableView>
-        <TextField fx:id="txtArama" layoutX="392.0" layoutY="86.0" onKeyPressed="#fncArama" prefHeight="25.0" prefWidth="284.0" promptText="Arama" AnchorPane.rightAnchor="5.0" />
+      <TabPane layoutX="14.0" layoutY="-14.0" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab onSelectionChanged="#firmaYonetimi" text="Firma Yönetimi">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="table_firma" layoutX="152.0" layoutY="150.0" prefHeight="295.0" prefWidth="590.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="70.0" />
+                        <TextField fx:id="txtArama" layoutX="365.0" layoutY="34.0" onAction="#fncArama" prefHeight="25.0" prefWidth="220.0" promptText="Arama" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="35.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab onSelectionChanged="#ilanYonetimi" text="İlan Yönetimi">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="table_ilan" layoutX="149.0" layoutY="107.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="70.0" />
+                        <TextField layoutX="359.0" layoutY="36.0" prefHeight="25.0" prefWidth="220.0" promptText="Arama" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="35.0" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab onSelectionChanged="#personelYonetimi" text="Personel Yönetimi - İş Arayanlar">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="table_personel" layoutX="200.0" layoutY="113.0" prefHeight="269.0" prefWidth="590.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="70.0" />
+                        <TextField layoutX="383.0" layoutY="33.0" prefHeight="25.0" prefWidth="220.0" promptText="Arama" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="35.0" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab onSelectionChanged="#puanYonetimi" text="Puanlama (Puan Belirleme)">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="table_puan" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="70.0" />
+                        <TextField layoutX="437.0" layoutY="34.0" prefHeight="25.0" prefWidth="220.0" promptText="Arama" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="35.0" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab onSelectionChanged="#gorusmeYonetimi" text="Görüşmeler Yönetimi">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="table_gorusme" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="70.0" />
+                        <TextField layoutX="437.0" layoutY="33.0" prefHeight="25.0" prefWidth="220.0" promptText="Arama" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="35.0" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
     </children>
 </AnchorPane>
