@@ -3,9 +3,6 @@ package javafx_ik.Admin;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -13,9 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import javafx_ik.Bolumu.DynamicTable;
-import javafx_ik.Bolumu.FirmaYonetimi;
-import javafx.stage.WindowEvent;
+import javafx_ik.Bolumu.IK_BolumuController;
 
 //import javafx_ik.Bolumu.FirmaYonetimi;
 import javafx_ik.GirisVeKayitEkranlari.KayitEkraniController;
@@ -25,6 +20,21 @@ public class AdminPanelController extends Kisiler implements Initializable {
 
     @FXML
     Button btn1;
+
+    @FXML
+    // bu metod ik bölümünün yönetim sayfasına geçiş yapacak
+    public void ikYonetim() throws IOException {
+        IK_BolumuController ik = new IK_BolumuController();
+        Stage ns = new Stage();
+        FXMLLoader ld = new FXMLLoader();
+        Parent loader = ld.load(ik.getClass().getResource("IK_Bolumu.fxml").openStream());
+        Scene gec = new Scene(loader);
+        ns.setScene(gec);
+        ns.show();
+        ns.setOnCloseRequest(geriDonus);
+        Stage s = (Stage) btn1.getScene().getWindow();
+        s.close();
+    }
 
     @FXML
     public void IKekrani() throws IOException {

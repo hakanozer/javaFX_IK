@@ -11,7 +11,7 @@
       <Button layoutX="24.0" layoutY="225.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" text="İlanlar" />
       <Button layoutX="584.0" layoutY="20.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" text="Firma" />
       <Button layoutX="400.0" layoutY="20.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" text="Personel" />
-      <Button layoutX="210.0" layoutY="20.0" mnemonicParsing="false" onAction="#IKekrani" prefHeight="150.0" prefWidth="150.0" text="İK" />
+      <Button layoutX="210.0" layoutY="20.0" mnemonicParsing="false" onAction="#ikYonetim" prefHeight="150.0" prefWidth="150.0" text="İK" />
       <Button layoutX="400.0" layoutY="225.0" mnemonicParsing="false" onAction="#bolumYonet" prefHeight="150.0" prefWidth="150.0" text="Bölüm Yönetimi" />
       <Button fx:id="btn1" layoutX="24.0" layoutY="20.0" mnemonicParsing="false" onAction="#kayitEkrani" prefHeight="150.0" prefWidth="150.0" text="Yeni Kayıt" />
       <Button layoutX="24.0" layoutY="410.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" text="Ücret Yönetimi" />
