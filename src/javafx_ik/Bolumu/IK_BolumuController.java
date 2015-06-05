@@ -40,7 +40,7 @@ public class IK_BolumuController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        DataGetir("personel");
+        DataGetir("firmalar");
     }
 
     public void DataGetir(String tabloAdi) {
@@ -64,7 +64,14 @@ public class IK_BolumuController implements Initializable {
                 TableColumn col = new TableColumn(columns.get(i));
                 col.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ObservableList, String>, ObservableValue<String>>() {
                     public ObservableValue<String> call(TableColumn.CellDataFeatures<ObservableList, String> param) {
-                        return new SimpleStringProperty(param.getValue().get(j).toString());
+                        String yaz;
+                        try {
+                            yaz = param.getValue().get(j).toString();
+                        } catch (Exception e) {
+                            yaz = "";
+                        }
+
+                        return new SimpleStringProperty(yaz);
                     }
                 });
                 table.getColumns().addAll(col);
