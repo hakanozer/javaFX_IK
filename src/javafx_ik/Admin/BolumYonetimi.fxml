@@ -8,18 +8,19 @@
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx_ik.Admin.BolumYonetimiController">
    <children>
-      <TableView fx:id="tableBolum" layoutX="14.0" layoutY="14.0" onMouseClicked="#secimYap" prefHeight="560.0" prefWidth="225.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+      <TableView fx:id="tableBolum" layoutX="14.0" layoutY="14.0" prefHeight="560.0" prefWidth="225.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
         <columns>
           <TableColumn fx:id="c1" prefWidth="75.0" text="ID" />
           <TableColumn fx:id="c2" prefWidth="75.0" text="Kategori" />
             <TableColumn fx:id="c3" prefWidth="75.0" text="Üst Kat. Id" />
         </columns>
       </TableView>
-      <Button layoutX="598.0" layoutY="43.0" mnemonicParsing="false" onAction="#yeniUstKatEkle" prefHeight="65.0" prefWidth="150.0" text="Yeni Üst Kategori Ekle" />
+      <Button layoutX="597.0" layoutY="258.0" mnemonicParsing="false" onAction="#yeniUstKatEkle" prefHeight="65.0" prefWidth="150.0" text="Yeni Üst Kategori Ekle" />
       <Button layoutX="598.0" layoutY="504.0" mnemonicParsing="false" onAction="#silButon" prefHeight="65.0" prefWidth="150.0" style="-fx-font-size: 20; -fx-background-color: #dc5231;" text="Kategori Sil" />
-      <ChoiceBox fx:id="katbox" layoutX="268.0" layoutY="258.0" prefHeight="65.0" prefWidth="150.0" />
-      <TextField fx:id="txtBolumyeni" layoutX="432.0" layoutY="258.0" prefHeight="65.0" prefWidth="150.0" promptText="Yeni Bölüm Adı" style="-fx-font-size: 15;" />
-      <Button layoutX="598.0" layoutY="258.0" mnemonicParsing="false" onAction="#yeniKategoriEkle" prefHeight="65.0" prefWidth="150.0" text="Yeni Kategori Ekle" />
-      <TextField fx:id="yeniUstKat" layoutX="432.0" layoutY="43.0" prefHeight="65.0" prefWidth="150.0" promptText="Yeni Üst Kategori" style="-fx-font-size: 15;" />
-   </children>
+      <ChoiceBox fx:id="katbox" layoutX="269.0" layoutY="34.0" prefHeight="65.0" prefWidth="150.0" />
+      <TextField fx:id="txtBolumyeni" layoutX="432.0" layoutY="34.0" prefHeight="65.0" prefWidth="150.0" promptText="Yeni Bölüm Adı" style="-fx-font-size: 15;" />
+      <Button layoutX="597.0" layoutY="34.0" mnemonicParsing="false" onAction="#yeniKategoriEkle" prefHeight="65.0" prefWidth="150.0" text="Yeni Kategori Ekle" />
+      <TextField fx:id="yeniUstKat" layoutX="432.0" layoutY="258.0" prefHeight="65.0" prefWidth="150.0" promptText="Yeni Üst Kategori" style="-fx-font-size: 15;" />
+   
+      </children>
 </AnchorPane>

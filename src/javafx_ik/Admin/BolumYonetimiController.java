@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -33,7 +32,6 @@ public class BolumYonetimiController extends Bolumler implements Initializable {
             }
         } catch (Exception e) {
         }
-
     }
 
     @FXML
@@ -49,9 +47,9 @@ public class BolumYonetimiController extends Bolumler implements Initializable {
     @FXML
     private void yeniKategoriEkle() {
         String yeniBolum = (String) katbox.getSelectionModel().getSelectedItem();
-
         try {
             int durum = baglan().executeUpdate("INSERT INTO bolumler VALUES ('" + txtBolumyeni.getText() + "',(SELECT id from bolumler WHERE adi= '" + yeniBolum + "'))");
+
         } catch (Exception e) {
             System.err.println("Bölüm eklenemedi : " + e);
         }
@@ -59,37 +57,17 @@ public class BolumYonetimiController extends Bolumler implements Initializable {
         initialize(null, null);
     }
 
-    /* @FXML
-     private void duzenle() throws SQLException {
-     final Bolumler sinif = (Bolumler) tableBolum.getSelectionModel().getSelectedItem();
-     setId(sinif.getId());
-     setAdi(txtBolum.getText());
-     setAlt_kat_id(Integer.valueOf(txtUstKat.getText()));
-     BolumDuzenle();
-     initialize(null, null);
-     txtBolum.setText("");
-     txtUstKat.setText("");
-
-     }*/
-    @FXML
     private void secimYap() {
         final Bolumler sinif = (Bolumler) tableBolum.getSelectionModel().getSelectedItem();
         setId(sinif.getId());
     }
 
     @FXML
-    private void silButon() throws SQLException {
-        Bolumler sinif = (Bolumler) tableBolum.getSelectionModel().getSelectedItem();
-        if (sinif != null) {
-            setId(sinif.getId());
-            sil();
-            sinif = null;
-            initialize(null, null);
-        } else {
-            Alert uyari= new Alert(Alert.AlertType.ERROR);
-           uyari.setContentText("Kategori seçiniz...");
-        }
-
+    public void silButon() throws SQLException {
+        final Bolumler sinif = (Bolumler) tableBolum.getSelectionModel().getSelectedItem();
+        setId(sinif.getId());
+        sil();
+        initialize(null, null);
     }
 
     @Override
@@ -100,6 +78,7 @@ public class BolumYonetimiController extends Bolumler implements Initializable {
         c3.setCellValueFactory(new PropertyValueFactory<>("alt_kat_id"));
         Bolumler b = new Bolumler();
         tableBolum.setItems(b.bilgileriGetir());
+
     }
 
 }

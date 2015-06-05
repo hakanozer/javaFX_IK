@@ -17,7 +17,7 @@ import javafx_ik.FirmaBolumu.*;
 
 public class GirisEkraniController extends Kisiler implements Initializable {
 
-    Metodlar m = new Metodlar();
+  
     @FXML
     TextField txtKuladi;
     @FXML
@@ -25,7 +25,7 @@ public class GirisEkraniController extends Kisiler implements Initializable {
 
     @FXML
     public void girisYapEkran() throws IOException {
-        String dizi[] = girisYap(txtKuladi.getText(), m.md5Olustur(txtParola.getText()));
+              String dizi[] = girisYap(txtKuladi.getText(), md5Olustur(txtParola.getText()));
         // aşağıdaki koşul gövdelerinde dizinin ikinci elemanına göre 
         // ilgili profil idsinin bilgilerine ulaşılacak
         String x = dizi[0];

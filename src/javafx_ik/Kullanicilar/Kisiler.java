@@ -1,6 +1,18 @@
 package javafx_ik.Kullanicilar;
 
+import java.io.IOException;
+import java.security.MessageDigest;
 import java.sql.ResultSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.event.Event;
+import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx_ik.Admin.AdminPanelController;
+import javafx_ik.GirisVeKayitEkranlari.KayitEkraniController;
 import javafx_ik.msDB;
 
 public abstract class Kisiler extends msDB {
@@ -72,5 +84,52 @@ public abstract class Kisiler extends msDB {
         }
         return sevID;
     }
+    
+    public String md5Olustur(String pass) {
+
+        StringBuffer sb32 = null;
+
+        try {
+
+            MessageDigest messageDigestNesnesi = MessageDigest.getInstance("MD5");
+            messageDigestNesnesi.update(pass.getBytes());
+            byte messageDigestDizisi[] = messageDigestNesnesi.digest();
+            sb32 = new StringBuffer();
+
+            for (int i = 0; i < messageDigestDizisi.length; i++) {
+                sb32.append(Integer.toString((messageDigestDizisi[i] & 0xff) + 0x100, 16).substring(1));
+
+            }
+//           System.out.println("Parolanın Şifrelenmiş Hali:(32) " + sb32.toString());
+
+        } catch (Exception e) {
+            System.err.println("MD5 Oluşturma Hatası : " + e);
+        }
+
+        return sb32.toString();
+
+    }
+    
+    public EventHandler geriDonus = new EventHandler() {
+
+        @Override
+        public void handle(Event event) {
+            try {
+                AdminPanelController adm = new AdminPanelController();
+                Stage ns = new Stage();
+                FXMLLoader ld = new FXMLLoader();
+                Parent loader = ld.load(adm.getClass().getResource("AdminPanel.fxml").openStream());
+                Scene gec = new Scene(loader);
+                ns.setScene(gec);
+                ns.show();
+            } catch (IOException ex) {
+                Logger.getLogger(KayitEkraniController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+    };
+
+
+
 
 }

@@ -16,7 +16,7 @@ import javafx.scene.control.TextField;
 import javafx_ik.Kullanicilar.Kisiler;
 
 public class KayitEkraniController extends Kisiler implements Initializable {
-Metodlar m = new Metodlar();
+
     public void choices() {
 
         seviyeSec.getItems().addAll("Admin", "İK Uzmanı", "Firma", "Personel");
@@ -35,7 +35,7 @@ Metodlar m = new Metodlar();
 
     @FXML
     private void handleButtonAction(ActionEvent event) {
-        System.out.println(seviyeSec.getSelectionModel().getSelectedIndex());
+        
         String pass = parola.getText();
         String user = kadi.getText();
         int seviye = 0;
@@ -53,7 +53,7 @@ Metodlar m = new Metodlar();
             label.setText("Boş Alan Bırakmayın!");
         } else {
 
-            if (kayitOl(user, m.md5Olustur(pass), seviye)) {
+            if (kayitOl(user, md5Olustur(pass), seviye)) {
               // kayıt başarılı ise
                 // kaydı yapan kişinin kendi sayfası devam edecek
             }

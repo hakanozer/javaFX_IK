@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="javafx_ik.GirisVeKayitEkranlari.KayitEkraniController">
+<AnchorPane id="AnchorPane" fx:id="kayitekrani" prefHeight="200" prefWidth="320" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx_ik.GirisVeKayitEkranlari.KayitEkraniController">
    <children>
       <TextField fx:id="kadi" layoutX="86.0" layoutY="25.0" promptText="Kullanıcı Adı" />
       <PasswordField fx:id="parola" layoutX="86.0" layoutY="66.0" promptText="Parola" />

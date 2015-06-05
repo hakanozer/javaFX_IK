@@ -6,16 +6,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="javafx_ik.Admin.AdminPanelController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx_ik.Admin.AdminPanelController">
    <children>
-      <Button layoutX="45.0" layoutY="160.0" mnemonicParsing="false" prefHeight="148.0" prefWidth="130.0" text="İlanlar" />
-      <Button layoutX="214.0" layoutY="167.0" mnemonicParsing="false" prefHeight="104.0" prefWidth="135.0" text="Firma" />
-      <Button layoutX="394.0" layoutY="175.0" mnemonicParsing="false" prefHeight="112.0" prefWidth="151.0" text="Personel" />
-      <Button layoutX="613.0" layoutY="57.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="131.0" text="İK" />
-      <Button layoutX="584.0" layoutY="229.0" mnemonicParsing="false" prefHeight="137.0" prefWidth="159.0" text="Bölüm / Kategori" />
-      <Button layoutX="607.0" layoutY="432.0" mnemonicParsing="false" onAction="#kayitEkrani" prefHeight="103.0" prefWidth="119.0" text="Yeni Kayıt" />
-      <Button layoutX="83.0" layoutY="399.0" mnemonicParsing="false" prefHeight="141.0" prefWidth="200.0" text="Ücret Yönetimi" />
-      <Button layoutX="388.0" layoutY="386.0" mnemonicParsing="false" prefHeight="111.0" prefWidth="158.0" text="İş Görüşmeleri" />
-   </children>
+      <Button layoutX="24.0" layoutY="225.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" text="İlanlar" />
+      <Button layoutX="584.0" layoutY="20.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" text="Firma" />
+      <Button layoutX="400.0" layoutY="20.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" text="Personel" />
+      <Button layoutX="210.0" layoutY="20.0" mnemonicParsing="false" onAction="#IKekrani" prefHeight="150.0" prefWidth="150.0" text="İK" />
+      <Button layoutX="400.0" layoutY="225.0" mnemonicParsing="false" onAction="#bolumYonet" prefHeight="150.0" prefWidth="150.0" text="Bölüm Yönetimi" />
+      <Button fx:id="btn1" layoutX="24.0" layoutY="20.0" mnemonicParsing="false" onAction="#kayitEkrani" prefHeight="150.0" prefWidth="150.0" text="Yeni Kayıt" />
+      <Button layoutX="24.0" layoutY="410.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" text="Ücret Yönetimi" />
+      <Button layoutX="210.0" layoutY="225.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" text="İş Görüşmeleri" /> </children>
 </AnchorPane>
