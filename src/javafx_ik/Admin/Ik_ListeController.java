@@ -13,10 +13,12 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx_ik.Hata;
 import javafx_ik.msDB;
 
 
-public class Ik_ListeController extends msDB implements Initializable {
+
+public class Ik_ListeController extends msDB implements Initializable, Hata {
     
     static ObservableList<ik_data> ik_liste = FXCollections.observableArrayList();
     
@@ -74,7 +76,6 @@ public class Ik_ListeController extends msDB implements Initializable {
     @FXML
     public void kisiSec() {
         
-
         final ik_data secim = (ik_data) ik_tablo.getSelectionModel().getSelectedItem();
         
         dataGetir("" + secim.getId());
@@ -82,17 +83,17 @@ public class Ik_ListeController extends msDB implements Initializable {
     }
 
     @FXML
-    TextField txtAdi;
+    TextField adi;
     @FXML
-    TextField txtSoyadi;
+    TextField soyadi;
     @FXML
-    TextField txtTelefon;
+    TextField telefon;
     @FXML
-    TextField txtGsm;
+    TextField gsm;
     @FXML
-    TextField txtAdres;
+    TextField adres;
     @FXML
-    TextField txtMail;
+    TextField mail;
 
     public void dataGetir(String id) {
 
@@ -101,12 +102,12 @@ public class Ik_ListeController extends msDB implements Initializable {
             ResultSet rs = baglan().executeQuery("select *from ik_uzmani where id = '" + id + "'");
             if (rs.next()) {
 
-                txtAdi.setText(rs.getString("adi"));
-                txtSoyadi.setText(rs.getString("soyadi"));
-                txtTelefon.setText(rs.getString("telefon"));
-                txtGsm.setText(rs.getString("gsm"));
-                txtAdres.setText(rs.getString("adres"));
-                txtMail.setText(rs.getString("mail"));
+                adi.setText(rs.getString("adi"));
+                soyadi.setText(rs.getString("soyadi"));
+                telefon.setText(rs.getString("telefon"));
+                gsm.setText(rs.getString("gsm"));
+                adres.setText(rs.getString("adres"));
+                mail.setText(rs.getString("mail"));
 
             } 
 
@@ -117,25 +118,34 @@ public class Ik_ListeController extends msDB implements Initializable {
     
     @FXML
     public void guncelle() throws SQLException {
+        
+    if(!Hata.hataDenetle(adi)&&!Hata.hataDenetle(soyadi)&&!Hata.hataDenetle(telefon)&&!Hata.hataDenetle(gsm)&&!Hata.hataDenetle(adres)&&!Hata.hataDenetle(mail)){
 
     final ik_data secim = (ik_data) ik_tablo.getSelectionModel().getSelectedItem();
     String id = ""+secim.getId();
-    int durum = baglan().executeUpdate("update ik_uzmani set adi = '"+txtAdi.getText()+"', soyadi = '"+txtSoyadi.getText()+"', telefon = '"+txtTelefon.getText()+"', gsm = '"+txtGsm.getText()+"', adres = '"+txtAdres.getText()+"', mail = '"+txtMail.getText()+"' where id = '"+id+"'");
+    int durum = baglan().executeUpdate("update ik_uzmani set adi = '"+adi.getText()+"', soyadi = '"+soyadi.getText()+"', telefon = '"+telefon.getText()+"', gsm = '"+gsm.getText()+"', adres = '"+adres.getText()+"', mail = '"+mail.getText()+"' where id = '"+id+"'");
+     
     if(durum > 0) {
+    
         System.out.println("Güncelleme İşlemi Başarılı");
         initialize(null, null);
+        
     }else {
         System.out.println("Güncelleme İşlemi Hatalı");
     }
    
-    }
     
+    }else{
+    
+   
+    }
+    }
     @FXML
     public void kisiSil() throws SQLException {
 
     final ik_data secim = (ik_data) ik_tablo.getSelectionModel().getSelectedItem();
     String id = ""+secim.getId();
-    int durum = baglan().executeUpdate("delete from ik_uzmani where id = '"+id+"'");
+    int durum = baglan().executeUpdate("delete from ik_uzmani where id = '" + id + "'");
     if(durum > 0) {
         System.out.println("Silme İşlemi Başarılı");
         initialize(null, null);
