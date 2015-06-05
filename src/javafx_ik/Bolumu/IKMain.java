@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package javafx_ik.Bolumu;
 
-import javafx_ik.FirmaBolumu.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,18 +16,18 @@ import javafx.stage.Stage;
  *
  * @author java-1
  */
-public class FirmaYonetimi extends Application {
+public class IKMain extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("firmaYonetimi.fxml"));
+    public void start(Stage stage) throws Exception {
         
-        Scene scene = new Scene(root);
-        
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        Parent root = FXMLLoader.load(getClass().getResource("IK_Bolumu.fxml"));
+        Scene scene = new Scene(root,800,600);
+        stage.setTitle("IK Bölümü");
+        stage.setScene(scene);
+        stage.show();
     }
-
+    
     public static void main(String[] args) {
         launch(args);
     }
