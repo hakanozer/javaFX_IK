@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -18,73 +19,80 @@ public class BolumYonetimiController extends Bolumler implements Initializable {
     @FXML
     TableColumn c1, c2, c3;
     @FXML
-    TextField txtBolum, txtUstKat;
-
+    TextField txtBolumyeni, yeniUstKat;
     @FXML
-    public void bolumEkleBtn() {
-        setAdi(txtBolum.getText());
-        setAlt_kat_id(Integer.valueOf(txtUstKat.getText()));
-        bolumEkle();
-        initialize(null, null);
-        txtBolum.setText("");
-        txtUstKat.setText("");
-    }
+    ChoiceBox katbox;
 
-    @FXML
-    public void duzenle() throws SQLException {
-        final Bolumler sinif = (Bolumler) tableBolum.getSelectionModel().getSelectedItem();
-        setId(sinif.getId());
-        setAdi(txtBolum.getText());
-        setAlt_kat_id(Integer.valueOf(txtUstKat.getText()));
-        BolumDuzenle();
-        initialize(null, null);
-        txtBolum.setText("");
-        txtUstKat.setText("");
-
-    }
-
-    @FXML
-    public void secimYap() {
-        final Bolumler sinif = (Bolumler) tableBolum.getSelectionModel().getSelectedItem();
-        setId(sinif.getId());
-        bilgiGetir(getId() + "");
-    }
-
-    @FXML
-    public void bilgiGetir(String id) {
-
+    private void choices() {
+        katbox.getItems().clear();
         try {
-            ResultSet rs = baglan().executeQuery("SELECT *FROM bolumler WHERE id = '" + id + "'");
-            if (rs.next()) {
-
-                txtBolum.setText(rs.getString("adi"));
-                txtUstKat.setText(String.valueOf(rs.getInt("alt_kat_id")));
-
+            ResultSet rs = baglan().executeQuery("SELECT *FROM bolumler WHERE alt_kat_id=0");
+            while (rs.next()) {
+                katbox.getItems().addAll(rs.getString("adi"));
             }
         } catch (Exception e) {
-            System.err.println("" + e);
         }
+
     }
 
     @FXML
-    public void silButon() throws SQLException {
+    private void yeniUstKatEkle() {
+        try {
+            int durum = baglan().executeUpdate("INSERT INTO bolumler VALUES ('" + yeniUstKat.getText() + "', '0')");
+        } catch (Exception e) {
+        }
+        yeniUstKat.setText("");
+        initialize(null, null);
+    }
+
+    @FXML
+    private void yeniKategoriEkle() {
+        String yeniBolum = (String) katbox.getSelectionModel().getSelectedItem();
+
+        try {
+            int durum = baglan().executeUpdate("INSERT INTO bolumler VALUES ('" + txtBolumyeni.getText() + "',(SELECT id from bolumler WHERE adi= '" + yeniBolum + "'))");
+        } catch (Exception e) {
+            System.err.println("Bölüm eklenemedi : " + e);
+        }
+        txtBolumyeni.setText("");
+        initialize(null, null);
+    }
+
+    /* @FXML
+     private void duzenle() throws SQLException {
+     final Bolumler sinif = (Bolumler) tableBolum.getSelectionModel().getSelectedItem();
+     setId(sinif.getId());
+     setAdi(txtBolum.getText());
+     setAlt_kat_id(Integer.valueOf(txtUstKat.getText()));
+     BolumDuzenle();
+     initialize(null, null);
+     txtBolum.setText("");
+     txtUstKat.setText("");
+
+     }*/
+    @FXML
+    private void secimYap() {
+        final Bolumler sinif = (Bolumler) tableBolum.getSelectionModel().getSelectedItem();
+        setId(sinif.getId());
+    }
+
+    @FXML
+    private void silButon() throws SQLException {
         final Bolumler sinif = (Bolumler) tableBolum.getSelectionModel().getSelectedItem();
         setId(sinif.getId());
         sil();
         initialize(null, null);
-        txtBolum.setText("");
-        txtUstKat.setText("");
 
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        choices();
         c1.setCellValueFactory(new PropertyValueFactory<>("id"));
         c2.setCellValueFactory(new PropertyValueFactory<>("adi"));
         c3.setCellValueFactory(new PropertyValueFactory<>("alt_kat_id"));
         Bolumler b = new Bolumler();
         tableBolum.setItems(b.bilgileriGetir());
-
     }
 
 }

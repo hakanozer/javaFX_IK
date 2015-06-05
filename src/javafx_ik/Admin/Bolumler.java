@@ -49,7 +49,7 @@ public class Bolumler extends msDB {
         ObservableList<Bolumler> bolumList = FXCollections.observableArrayList();
         try {
             baglan();
-            ResultSet rs = baglan().executeQuery("SELECT *FROM bolumler");
+            ResultSet rs = baglan().executeQuery("SELECT *FROM bolumler ORDER BY alt_kat_id");
             while (rs.next()) {
                 bolumList.add(new Bolumler(rs.getInt("id"), rs.getString("adi"), rs.getInt("alt_kat_id")));
             }
