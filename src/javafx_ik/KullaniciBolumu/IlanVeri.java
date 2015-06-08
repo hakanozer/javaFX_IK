@@ -4,16 +4,8 @@
 package javafx_ik.KullaniciBolumu;
 
 public class IlanVeri {
-    
-    private int id;
-    private String firmaAd;
-    private String ilanBaslik;
 
-    public IlanVeri(int id, String firmaAd, String ilanBaslik) {
-        this.id = id;
-        this.firmaAd = firmaAd;
-        this.ilanBaslik = ilanBaslik;
-    }
+    private int id;
 
     public int getId() {
         return id;
@@ -21,6 +13,18 @@ public class IlanVeri {
 
     public void setId(int id) {
         this.id = id;
+    }
+    private String firmaAd;
+    private String ilanBaslik;
+
+    public IlanVeri(int id) {
+        this.id = id;
+    }
+
+    public IlanVeri(int id, String firmaAd, String ilanBaslik) {
+        this.id = id;
+        this.firmaAd = firmaAd;
+        this.ilanBaslik = ilanBaslik;
     }
 
     public String getFirmaAd() {
@@ -38,5 +42,5 @@ public class IlanVeri {
     public void setIlanBaslik(String ilanBaslik) {
         this.ilanBaslik = ilanBaslik;
     }
-    
+
 }

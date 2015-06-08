@@ -42,14 +42,13 @@ public class IkBasvuruFXMLController extends msDB implements Initializable {
     String secimId = "";
     String basvuruDurum = "";
 
-    
     @FXML
     public void bilgiler() {
         ResultSet rs;
         String sorgu = "SELECT f.unvan, i.baslik, i.bolumler, i.kisa_aciklama, \n"
                 + "i.detay, i.kosullar, i.personel_sayisi, i.id, i.eklenme_tarihi, i.baslangic_tarihi, \n"
                 + "i.bitis_tarihi, i.durum, i.izlenme, f.logo\n"
-                + "FROM ilanlar i LEFT JOIN firmalar f ON i.firma_id = f.id where i.id = 1 ";
+                + "FROM ilanlar i LEFT JOIN firmalar f ON i.firma_id = f.id where i.id = '" + IlanAramaFXMLController.ilanID + "'";
         try {
             rs = baglan().executeQuery(sorgu);
             rs.next();

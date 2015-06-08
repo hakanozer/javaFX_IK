@@ -87,7 +87,7 @@
                   </VBox>
                   <HBox alignment="TOP_RIGHT">
                      <children>
-                        <Button fx:id="btnBasvur" alignment="CENTER" contentDisplay="CENTER" disable="true" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="BAŞVUR">
+                        <Button fx:id="btnBasvur" alignment="CENTER" contentDisplay="CENTER" disable="true" mnemonicParsing="false" onAction="#basvurAc" prefHeight="30.0" prefWidth="80.0" text="BAŞVUR">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>

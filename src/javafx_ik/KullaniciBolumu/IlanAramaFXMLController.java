@@ -3,6 +3,7 @@
  */
 package javafx_ik.KullaniciBolumu;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
@@ -10,7 +11,10 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -20,6 +24,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 import javafx_ik.msDB;
 
 public class IlanAramaFXMLController extends msDB implements Initializable {
@@ -54,6 +59,7 @@ public class IlanAramaFXMLController extends msDB implements Initializable {
     Label lblTire;
     @FXML
     ImageView imgLogo;
+    public static int ilanID;
 
     @FXML
     public void ilanGetir() {
@@ -75,29 +81,43 @@ public class IlanAramaFXMLController extends msDB implements Initializable {
 
     @FXML
     public void secimGetir() {
-        final IlanVeri secim = (IlanVeri) tblIlan.getSelectionModel().getSelectedItem();
-        try {
-            ResultSet rs = baglan().executeQuery("select * from ilanlar i left join firmalar f on f.id=i.firma_id where i.id='" + secim.getId() + "'");
-            if (rs.next()) {
-                Image logo = new Image("file:" + rs.getString("logo"));
-                imgLogo.setImage(logo);
-                String basTarih = new SimpleDateFormat("dd.MM.yyyy").format(rs.getDate("baslangic_tarihi"));
-                String bitTarih = new SimpleDateFormat("dd.MM.yyyy").format(rs.getDate("bitis_tarihi"));
-                lblIlan.setText(rs.getString("baslik"));
-                lblFirma.setText(rs.getString("unvan"));
-                lblAciklama.setText(rs.getString("kisa_aciklama"));
-                lblBasTarih.setText(basTarih);
-                lblTire.setText("-");
-                lblBitTarih.setText(bitTarih);
-                btnBasvur.setDisable(false);
-            } else {
-                Alert uyari = new Alert(Alert.AlertType.INFORMATION);
-                uyari.setContentText("Seçim Yapılmadı");
-                uyari.show();
+        if (tblIlan.getSelectionModel().getSelectedItem() != null) {
+            final IlanVeri secim = (IlanVeri) tblIlan.getSelectionModel().getSelectedItem();
+            ilanID = secim.getId();
+            try {
+                ResultSet rs = baglan().executeQuery("select * from ilanlar i left join firmalar f on f.id=i.firma_id where i.id='" + secim.getId() + "'");
+                if (rs.next()) {
+                    Image logo = new Image("file:" + rs.getString("logo"));
+                    imgLogo.setImage(logo);
+                    String basTarih = new SimpleDateFormat("dd.MM.yyyy").format(rs.getDate("baslangic_tarihi"));
+                    String bitTarih = new SimpleDateFormat("dd.MM.yyyy").format(rs.getDate("bitis_tarihi"));
+                    lblIlan.setText(rs.getString("baslik"));
+                    lblFirma.setText(rs.getString("unvan"));
+                    lblAciklama.setText(rs.getString("kisa_aciklama"));
+                    lblBasTarih.setText(basTarih);
+                    lblTire.setText("-");
+                    lblBitTarih.setText(bitTarih);
+                    btnBasvur.setDisable(false);
+                } else {
+                    Alert uyari = new Alert(Alert.AlertType.INFORMATION);
+                    uyari.setContentText("Seçim Yapılmadı");
+                    uyari.show();
+                }
+            } catch (Exception e) {
+                System.err.println("Seçim Getirme Hatası : " + e);
             }
-        } catch (Exception e) {
-            System.err.println("Seçim Getirme Hatası : " + e);
         }
+    }
+
+    @FXML
+    public void basvurAc() throws IOException {
+
+        Stage st = new Stage();
+        st.setTitle("İlan Detayları");
+        Parent root = FXMLLoader.load(getClass().getResource("IkBasvuruFXML.fxml"));
+        Scene sc = new Scene(root);
+        st.setScene(sc);
+        st.show();
     }
 
     public void secimTemizle() {
@@ -114,6 +134,7 @@ public class IlanAramaFXMLController extends msDB implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ilanGetir();
+
     }
 
 }
