@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="304.0" prefWidth="314.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx_ik.Admin.ÖdemeBelirlemeController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="54.0" layoutY="24.0" prefHeight="43.0" prefWidth="207.0" text="Firma Bilgileri" textAlignment="JUSTIFY" textOverrun="CLIP">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="38.0" layoutY="81.0" prefHeight="27.0" prefWidth="78.0" text="Firma Adı:" />
+      <Label layoutX="28.0" layoutY="127.0" prefHeight="36.0" prefWidth="78.0" text="Firma Puanı:" />
+      <TextField fx:id="txtFirmaPuan" layoutX="105.0" layoutY="132.0" />
+      <Label layoutX="7.0" layoutY="183.0" text="İlan Puan Değeri:" />
+      <TextField fx:id="txtİlanPuan" layoutX="106.0" layoutY="179.0" />
+      <ComboBox fx:id="cmbAd" layoutX="106.0" layoutY="82.0" onAction="#fpuanGetir" prefWidth="150.0" />
+      <Label layoutX="35.0" layoutY="259.0" prefHeight="25.0" prefWidth="64.0" text="İlan Bedeli:" />
+      <Label fx:id="lblBedel" layoutX="99.0" layoutY="263.0" prefHeight="17.0" prefWidth="52.0" />
+      <Button fx:id="btnHesapla" layoutX="195.0" layoutY="220.0" mnemonicParsing="false" onAction="#hesapla" text="Hesapla" />
+   </children>
+</AnchorPane>
