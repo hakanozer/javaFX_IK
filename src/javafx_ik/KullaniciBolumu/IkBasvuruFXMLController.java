@@ -79,7 +79,7 @@ public class IkBasvuruFXMLController extends msDB implements Initializable {
             izlenme.setText(String.valueOf(rs.getInt("izlenme")));
 
             String resimAdi = rs.getString("logo");
-            Image image = new Image("file:image/" + resimAdi);
+            Image image = new Image("file:" + resimAdi);
             resim.setImage(image);
 //            labele resim ekleme için
 //            resimLabel.setGraphic(new ImageView(image));
