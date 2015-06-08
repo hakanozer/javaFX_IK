@@ -24,6 +24,9 @@ public class FirmaBolumu extends Application {
 
         stage.setTitle("Firma Bölümü");
         stage.setScene(scene);
-        stage.show();}
+        stage.show();
+    }
+    
+    
 
 }
