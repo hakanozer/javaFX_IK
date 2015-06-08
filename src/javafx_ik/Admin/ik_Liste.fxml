@@ -28,5 +28,6 @@
       <Button fx:id="btnSil" layoutX="553.0" layoutY="359.0" mnemonicParsing="false" onAction="#kisiSil" prefHeight="25.0" prefWidth="72.0" text="Kişi Sil" />
       <Button fx:id="btnGuncelle" layoutX="27.0" layoutY="359.0" mnemonicParsing="false" onAction="#guncelle" prefHeight="25.0" prefWidth="72.0" text="Güncelle" />
       <TextField fx:id="adi" layoutX="50.0" layoutY="261.0" promptText="Adı" />
+      <Button layoutX="274.0" layoutY="359.0" mnemonicParsing="false" onAction="#ikYonetim" text="İK Yönetimi" />
    </children>
 </AnchorPane>

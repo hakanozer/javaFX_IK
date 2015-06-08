@@ -22,21 +22,6 @@ public class AdminPanelController extends Kisiler implements Initializable {
     Button btn1;
 
     @FXML
-    // bu metod ik bölümünün yönetim sayfasına geçiş yapacak
-    public void ikYonetim() throws IOException {
-        IK_BolumuController ik = new IK_BolumuController();
-        Stage ns = new Stage();
-        FXMLLoader ld = new FXMLLoader();
-        Parent loader = ld.load(ik.getClass().getResource("IK_Bolumu.fxml").openStream());
-        Scene gec = new Scene(loader);
-        ns.setScene(gec);
-        ns.show();
-        ns.setOnCloseRequest(geriDonus);
-        Stage s = (Stage) btn1.getScene().getWindow();
-        s.close();
-    }
-
-    @FXML
     public void IKekrani() throws IOException {
         Ik_ListeController kay = new Ik_ListeController();
         Stage ns = new Stage();
