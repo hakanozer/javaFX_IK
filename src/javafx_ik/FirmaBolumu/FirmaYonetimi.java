@@ -18,10 +18,10 @@ import javafx_ik.msDB;
  *
  * @author java-1
  */
-public class ilan extends msDB {
+public class FirmaYonetimi extends msDB {
     
     
-    private ArrayList ilanlarıGetir(){
+    public ArrayList ilanlarıGetir(){
         
         ArrayList<Object> ilanListesi = new ArrayList<>();
         
@@ -31,20 +31,26 @@ public class ilan extends msDB {
             
             while (rs.next()) {                
                 HashMap<String,String> ilanMap = new HashMap<>();
-                ilanMap.put("bolum", rs.getString("bolumler"));
+                ilanMap.put("id", rs.getString("id"));
+                ilanMap.put("firma_id", rs.getString("firma_id"));
+                ilanMap.put("bolumler", rs.getString("bolumler"));
                 ilanMap.put("baslik", rs.getString("baslik"));
                 ilanMap.put("kisa_aciklama", rs.getString("kisa_aciklama"));
+                ilanMap.put("detay", rs.getString("detay"));
+                ilanMap.put("kosullar", rs.getString("kosullar"));
                 ilanMap.put("izlenme", rs.getString("izlenme"));
                 ilanMap.put("personel_sayisi", rs.getString("personel_sayisi"));
+                ilanMap.put("baslangic_tarihi", rs.getString("baslangic_tarihi"));
+                ilanMap.put("bitis_tarihi", rs.getString("bitis_tarihi"));
                 ilanListesi.add(ilanMap);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ilan.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FirmaYonetimi.class.getName()).log(Level.SEVERE, null, ex);
         }
         return ilanListesi;
     }
     
-    private void ilanEkle(){
+    public void ilanEkle(){
         
     }
     
