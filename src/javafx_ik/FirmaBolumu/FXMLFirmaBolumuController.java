@@ -10,8 +10,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
@@ -148,35 +150,47 @@ public class FXMLFirmaBolumuController implements Initializable {
         Label label10 = new Label();
         
         
-        TextField textfield1 = new TextField();
-        TextField textfield2 = new TextField();
-        TextField textfield3 = new TextField();
-        TextField textfield4 = new TextField();
-        TextField textfield5 = new TextField();
-        TextField textfield6 = new TextField();
-        TextField textfield7 = new TextField();
+        TextField bolumler = new TextField();
+        TextField baslik = new TextField();
+        TextField kisaAciklama = new TextField();
+        TextField kosullar = new TextField();
+        TextField personelSayisi = new TextField();
+        TextArea detay = new TextArea();
+        DatePicker baslangicTarihi = new DatePicker();
+        DatePicker bitisTarihi = new DatePicker();
+        DatePicker eklenmeTarihi = new DatePicker();
         TextField textfield8 = new TextField();
         TextField textfield9 = new TextField();
         TextField textfield10 = new TextField();
         
+        eklenmeTarihi.setPromptText("İlanın eklenme Tarihi");
+        bolumler.setPromptText("Bölüm");
+        baslik.setPromptText("Başlık");
+        kisaAciklama.setPromptText("Kısa Açıklama");
+        kosullar.setPromptText("Koşullar");
+        personelSayisi.setPromptText("Personel Sayisi");
+        detay.setPromptText("Detaylar");
+        baslangicTarihi.setPromptText("Başlangıç Tarihi");
+        bitisTarihi.setPromptText("Bitiş Tarihi");
         
-        textfield1.setPromptText("Adınız");
-        textfield2.setPromptText("Soyadınız");
-        label1.setText("Adınız");
-        label2.setText("Soyadınız");
-        
-        page.add(textfield1, 0, 0);
-        page.add(textfield2, 1, 0);
-        page.add(label1, 2, 0);
-        page.add(label2, 3, 0);
+        page.add(eklenmeTarihi,1,0);
+        page.add(bolumler, 0, 1);
+        page.add(baslik, 1, 1);
+        page.add(kisaAciklama, 0, 2);
+        page.add(kosullar, 1, 2);
+        page.add(personelSayisi,0, 3);
+        page.add(baslangicTarihi, 0, 4);
+        page.add(bitisTarihi, 1, 4);
+        page.add(detay, 0, 5);
         
         
         ColumnConstraints col1Constraints = new ColumnConstraints();
-        col1Constraints.setPercentWidth(50);
+        col1Constraints.setPercentWidth(100);
+        
         ColumnConstraints col2Constraints = new ColumnConstraints();
         col2Constraints.setPercentWidth(100);
         
-        page.getColumnConstraints().addAll(col1Constraints, col2Constraints, col1Constraints, col2Constraints);
+        page.getColumnConstraints().addAll(col1Constraints, col2Constraints);
         
         PaneCenter.getChildren().addAll(page);
     }
