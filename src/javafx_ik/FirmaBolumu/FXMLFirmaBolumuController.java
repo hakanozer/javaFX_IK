@@ -27,6 +27,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
+import javafx_ik.Admin.Bolumler;
 import javax.swing.JButton;
 
 public class FXMLFirmaBolumuController implements Initializable {
@@ -123,16 +124,7 @@ public class FXMLFirmaBolumuController implements Initializable {
         page.setHgap(10);
         page.setVgap(10);
 
-        Label label1 = new Label();
-        Label label2 = new Label();
-        Label label3 = new Label();
-        Label label4 = new Label();
-        Label label5 = new Label();
-        Label label6 = new Label();
-        Label label7 = new Label();
-        Label label8 = new Label();
-        Label label9 = new Label();
-        Label label10 = new Label();
+  
 
         TextField bolumler = new TextField();
         TextField baslik = new TextField();
@@ -143,9 +135,18 @@ public class FXMLFirmaBolumuController implements Initializable {
         DatePicker baslangicTarihi = new DatePicker();
         DatePicker bitisTarihi = new DatePicker();
         DatePicker eklenmeTarihi = new DatePicker();
-        TextField textfield8 = new TextField();
-        TextField textfield9 = new TextField();
-        TextField textfield10 = new TextField();
+        Button btnkaydet = new Button();
+        Button btniptal = new Button();
+        
+        btnkaydet.setOnAction(new EventHandler<javafx.event.ActionEvent>() {
+
+            @Override
+            public void handle(javafx.event.ActionEvent event) {
+                FirmaYonetimi kaydet = new FirmaYonetimi();
+                //kaydet.ilanEkle(bolumler.getText(), baslik.getText(), kisaAciklama.getText(), detay.getText(), kosullar.getText(), personelSayisi.getText(), baslangicTarihi.get, bitisTarihi.);
+            }
+        });
+       
 
         eklenmeTarihi.setPromptText("İlanın eklenme Tarihi");
         bolumler.setPromptText("Bölüm");
@@ -166,6 +167,8 @@ public class FXMLFirmaBolumuController implements Initializable {
         page.add(baslangicTarihi, 0, 4);
         page.add(bitisTarihi, 1, 4);
         page.add(detay, 0, 5);
+        page.add(btnkaydet, 1, 6);
+        page.add(btniptal, 0, 6);
 
         ColumnConstraints col1Constraints = new ColumnConstraints();
         col1Constraints.setPercentWidth(100);
@@ -283,4 +286,6 @@ public class FXMLFirmaBolumuController implements Initializable {
 
         PaneCenter.getChildren().addAll(page);
     }
+    
+            
 }
