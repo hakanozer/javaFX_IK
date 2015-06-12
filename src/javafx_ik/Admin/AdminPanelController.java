@@ -21,6 +21,19 @@ public class AdminPanelController extends Kisiler implements Initializable {
     @FXML
     Button btn1;
 
+    public void odemeBelirleme() throws IOException{
+   OdemeBelirlemeController kay = new OdemeBelirlemeController();
+        Stage ns = new Stage();
+        FXMLLoader ld = new FXMLLoader();
+        Parent loader = ld.load(kay.getClass().getResource("odemeBelirleme.fxml").openStream());
+        Scene gec = new Scene(loader);
+        ns.setScene(gec);
+        ns.show();
+        ns.setOnCloseRequest(geriDonus);
+        Stage s = (Stage) btn1.getScene().getWindow();
+        s.close();
+    }
+    
     @FXML
     public void IKekrani() throws IOException {
         Ik_ListeController kay = new Ik_ListeController();

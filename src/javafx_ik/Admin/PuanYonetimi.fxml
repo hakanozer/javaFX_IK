@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="197.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx_ik.Admin.PuanYonetimiController">
+   <children>
+      <TextField fx:id="puann" layoutX="76.0" layoutY="73.0" />
+      <Label layoutX="87.0" layoutY="42.0" text="Güncel İlan Puan Değeri" />
+      <Button layoutX="119.0" layoutY="125.0" mnemonicParsing="false" onAction="#puanGuncelle" text="Güncelle" />
+   </children>
+</AnchorPane>
