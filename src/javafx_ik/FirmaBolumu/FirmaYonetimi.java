@@ -8,26 +8,26 @@ package javafx_ik.FirmaBolumu;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.collections.ObservableList;
 import javafx_ik.msDB;
 
-/**
- *
- * @author java-1
- */
 public class FirmaYonetimi extends msDB {
+    
+    private int firmaID = 1;
+    
+    
 
     public ArrayList ilanlarıGetir() {
-
+        
         ArrayList<Object> ilanListesi = new ArrayList<>();
 
         try {
             ResultSet rs;
-            rs = baglan().executeQuery("SELECT * FROM ilanlar");
+            rs = baglan().executeQuery("SELECT * FROM ilanlar WHERE firma_id = '"+firmaID+"'");
 
             while (rs.next()) {
                 HashMap<String, String> ilanMap = new HashMap<>();
@@ -50,11 +50,37 @@ public class FirmaYonetimi extends msDB {
         return ilanListesi;
     }
 
-    public void ilanEkle(String bolum, String baslik, String kisaAciklama, String kosullar, String personelSayisi, String detay, Date baslangicTarihi, Date bitisTarihi) {
+    public void ilanEkle(String bolum, String baslik, String kisaAciklama, String detay, String kosullar, String personelSayisi, LocalDate baslangicTarihi, LocalDate bitisTarihi) {
         try {
-            ResultSet rs = baglan().executeQuery("INSERT INTO ilanlar VALUES(1,'" + bolum + "','" + baslik + "','" + kisaAciklama + "','" + detay + "', '" + kosullar + "',null, '" + personelSayisi + "','" + baslangicTarihi + "','" + bitisTarihi + "',now(),null)");
-        } catch (Exception e) {
+            int x = baglan().executeUpdate("INSERT INTO ilanlar (firma_id,bolumler,baslik,kisa_aciklama,detay,kosullar,izlenme,personel_sayisi,baslangic_tarihi,bitis_tarihi,eklenme_tarihi,durum) VALUES('"+firmaID+"','" + bolum + "','" + baslik + "','" + kisaAciklama + "','" + detay + "', '" + kosullar + "',0, '" + personelSayisi + "','" + baslangicTarihi + "','" + bitisTarihi + "',GETDATE(),0)");
 
+            if (x > 0) {
+                System.out.println("Kayıt Yapıldı.");
+            } else {
+                System.out.println("kayıt başarısız.");
+            }
+        } catch (Exception e) {
+            System.err.println("hata : " + e);
         }
     }
+
+    public void ilanGuncelle(String id,String bolum, String baslik, String kisaAciklama, String detay, String kosullar, String personelSayisi, LocalDate baslangicTarihi, LocalDate bitisTarihi) {
+        try {
+            int x = baglan().executeUpdate("UPDATE ilanlar SET bolumler='"+bolum+"', baslik='"+baslik+"', kisa_aciklama='"+kisaAciklama+"', detay='"+detay+"', kosullar='"+kosullar+"', personel_sayisi='"+personelSayisi+"', baslangic_tarihi='"+baslangicTarihi+"', bitis_tarihi='"+bitisTarihi+"' WHERE id='"+id+"' AND firma_id='"+firmaID+"'");
+
+            if (x > 0) {
+                System.out.println("Kayıt Yapıldı.");
+            } else {
+                System.out.println("kayıt başarısız.");
+            }
+        } catch (Exception e) {
+            System.err.println("hata : " + e);
+        }
+    }
+
+    public void setFirmaID(int firmaID) {
+        this.firmaID = firmaID;
+    }
+    
+    
 }
