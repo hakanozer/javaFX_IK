@@ -1,6 +1,8 @@
 
 package javafx_ik.FirmaBolumu;
 
+import java.util.Optional;
+
 import javafx.animation.Transition;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.DoubleProperty;
@@ -22,9 +24,9 @@ public class SplitPaneDividerSlider {
     private final Direction direction;
     private final SplitPane splitPane;
     private final int dividerIndex;
-    private BooleanProperty aimContentVisibleProperty;
-    private DoubleProperty lastDividerPositionProperty;
-    private DoubleProperty currentDividerPositionProperty;
+    private Optional<DoubleProperty> aimContentVisibleProperty;
+    private Optional<DoubleProperty> lastDividerPositionProperty;
+    private Optional<DoubleProperty> currentDividerPositionProperty;
     private Region content;
     private double contentInitialMinWidth;
     private double contentInitialMinHeight;
@@ -82,12 +84,14 @@ public class SplitPaneDividerSlider {
         content.setMinWidth(contentInitialMinWidth);
         setCurrentDividerPosition(getLastDividerPosition());
     }
+    
+    Optional<>
 
     public BooleanProperty aimContentVisibleProperty() {
-        if (aimContentVisibleProperty == null) {
-            aimContentVisibleProperty = new SimpleBooleanProperty(true);
+        if (aimContentVisibleProperty.isPresent()) {
+        	return aimContentVisibleProperty;
         }
-        return aimContentVisibleProperty;
+        return new SimpleBooleanProperty(true);
     }
 
     public void setAimContentVisible(boolean aimContentVisible) {
@@ -99,10 +103,13 @@ public class SplitPaneDividerSlider {
     }
 
     public DoubleProperty lastDividerPositionProperty() {
-        if (lastDividerPositionProperty == null) {
-            lastDividerPositionProperty = new SimpleDoubleProperty();
+        if (lastDividerPositionProperty.isPresent()) {
+            return lastDividerPositionProperty;
         }
-        return lastDividerPositionProperty;
+        
+        return new SimpleDoubleProperty();
+       
+        
     }
 
     public double getLastDividerPosition() {
@@ -114,10 +121,11 @@ public class SplitPaneDividerSlider {
     }
 
     public DoubleProperty currentDividerPositionProperty() {
-        if (currentDividerPositionProperty == null) {
-            currentDividerPositionProperty = new SimpleDoubleProperty();
-        }
-        return currentDividerPositionProperty;
+    	if(currentDividerPositionProperty.isPresent()) {
+    		return currentDividerPositionProperty.get();
+    	}
+    
+        return new SimpleDoubleProperty();
     }
 
     public double getCurrentDividerPosition() {
